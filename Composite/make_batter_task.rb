@@ -8,8 +8,9 @@ class MakeBatterTask < CompositeTask
 	def initialize
 		super('Make Batter')
 		@sub_tasks = []
-		add_sub_task(AddDryIngredientsTask.new)
-		add_sub_task(AddLiquidTask.new)
-		add_sub_task(MixTask.new)		
+		self.<<(AddDryIngredientsTask.new)
+		self.<<(AddLiquidTask.new)
+		self.<<(MixTask.new)
 	end
 end
+
