@@ -19,6 +19,7 @@ describe CompositeTask do
   it "should be able to receive a Task and add it to its task list" do
     task = Task.new('simple task')
     task.get_time_required.should == 0
+    task.total_number_basic_tasks.should == 1
 
     add_stubbed_task_to_composite_task(task)
     @composite_task.get_time_required.should == 0.0
@@ -27,9 +28,11 @@ describe CompositeTask do
   it "should be able to receive two StubTasks and add them to its task list" do
     add_stubbed_task_to_composite_task(StubTask.new)
     @composite_task.get_time_required.should == 3.0
+    @composite_task.total_number_basic_tasks.should == 1
 
     add_stubbed_task_to_composite_task(StubTask.new)
     @composite_task.get_time_required.should == 6.0
+    @composite_task.total_number_basic_tasks.should == 2
   end
 
   def add_stubbed_task_to_composite_task(task)
