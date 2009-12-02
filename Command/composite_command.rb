@@ -1,0 +1,21 @@
+require 'command'
+
+class CompositeCommand < Command
+	def initialize
+		@commands = []
+	end
+	
+	def add_command(command)
+		@commands << command
+	end
+	
+	def execute
+		@commands.each{|cmd| cmd.execute }
+	end
+	
+	def description
+		description = ''
+		@commands.each{ |cmd| description += cmd.description + "\n" }
+		description
+	end
+end
