@@ -10,4 +10,8 @@ cmds.add_command(CopyFile.new('file1.txt', 'file2.txt'))
 cmds.add_command(DeleteFile.new('file1.txt'))
 
 cmds.execute
-puts cmds.description
+cmds.unexecute
+
+# ucomment this if you want to unexecute the commands
+# puts cmds.description
+

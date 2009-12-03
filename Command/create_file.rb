@@ -4,10 +4,15 @@ class CreateFile < Command
 		@path = path
 		@contents = contents
 	end
-	
-	def execute 
+
+	def execute
 		f = File.open(@path, "w")
 		f.write(@contents)
 		f.close
 	end
+
+	def unexecute
+	  File.delete(@path)
+  end
 end
+
